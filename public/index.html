@@ -1,12 +1,389 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Talendro Resume Optimization</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talendro Resume Optimization – Be the Candidate That Gets Seen</title>
+  <meta name="description" content="AI-powered resume, cover letter, and LinkedIn optimization engineered for ATS systems and recruiter scan behavior. Built by a veteran recruiting executive with 30 years of hiring experience." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tal-blue: #2f6df6;
+      --tal-aqua: #00c4cc;
+      --tal-lime: #a4f400;
+      --tal-gray: #9fa6b2;
+      --tal-navy: #0f172a;
+      --bg-soft: #f4f7ff;
+      --bg-hero: #eef4ff;
+      --border-soft: #e0e7ff;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--tal-navy);
+      background: #ffffff;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Header */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--tal-blue);
+      text-decoration: none;
+    }
+    .header-nav { display: flex; gap: 2rem; }
+    .header-nav a {
+      color: var(--tal-gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--tal-blue); }
+
+    /* Hero */
+    .hero {
+      padding: 8rem 0 4rem;
+      background: linear-gradient(135deg, var(--bg-hero) 0%, #ffffff 100%);
+      text-align: center;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .authority-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(34, 197, 94, 0.1);
+      color: #16a34a;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .trust-icon { width: 1rem; height: 1rem; }
+    .hero-headline {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--tal-navy);
+    }
+    .highlight { color: var(--tal-blue); }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--tal-gray);
+      margin-bottom: 2.25rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta { margin-bottom: 1rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--tal-blue);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(47, 109, 246, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(47, 109, 246, 0.4);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--tal-blue);
+      border: 2px solid var(--tal-blue);
+      padding: 0.95rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--tal-blue); color: white; }
+
+    .cta-microcopy {
+      margin: 0.75rem auto 2rem;
+      max-width: 760px;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+    .cta-microcopy strong { color: var(--tal-navy); }
+    .trust-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--tal-gray);
+      font-size: 0.875rem;
+    }
+
+    /* How It Works */
+    .how-it-works-section { padding: 5rem 0; background: white; }
+    .how-it-works-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .section-kicker {
+      font-size: 0.875rem;
+      color: var(--tal-blue);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--tal-navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--tal-gray);
+      margin-bottom: 2rem;
+    }
+    .process-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+    .process-step { display: flex; align-items: flex-start; gap: 1rem; }
+    .step-number {
+      background: var(--tal-blue);
+      color: white;
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-content h4 { color: var(--tal-navy); margin-bottom: 0.25rem; font-weight: 700; }
+    .step-content p { color: var(--tal-gray); font-size: 0.95rem; }
+
+    .demo-card {
+      background: white;
+      border: 2px solid var(--border-soft);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .demo-title { font-size: 1.125rem; font-weight: 800; color: var(--tal-navy); margin-bottom: 0.25rem; }
+    .demo-subtitle { font-size: 0.875rem; color: var(--tal-gray); margin-bottom: 1rem; }
+    .rules-box {
+      background: rgba(47, 109, 246, 0.06);
+      border: 2px solid rgba(47, 109, 246, 0.25);
+      border-radius: 14px;
+      padding: 1rem;
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .rules-box strong { color: var(--tal-navy); }
+    .rules-list { margin: 0.75rem 0 0; padding-left: 1.1rem; }
+    .rules-list li { margin: 0.25rem 0; }
+
+    /* Products */
+    .products-preview { padding: 5rem 0; background: var(--bg-soft); }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-size: 2.5rem; font-weight: 700; color: var(--tal-navy); margin-bottom: 1rem; }
+    .section-header p { font-size: 1.25rem; color: var(--tal-gray); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 520px;
+    }
+    .product-card:hover {
+      border-color: var(--tal-blue);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .product-card.featured {
+      border-color: var(--tal-blue);
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    .product-header { margin-bottom: 1.25rem; }
+    .product-header h3 { font-size: 1.5rem; font-weight: 800; color: var(--tal-navy); margin-bottom: 0.25rem; }
+    .product-tagline { font-size: 0.9rem; color: var(--tal-gray); margin-bottom: 0.75rem; }
+    .product-price { font-size: 1.875rem; font-weight: 900; color: var(--tal-blue); }
+    .product-price span { font-size: 1rem; font-weight: 500; color: var(--tal-gray); }
+    .product-description { color: #475569; margin-bottom: 1.25rem; line-height: 1.6; font-size: 0.98rem; }
+    .product-features { list-style: none; margin-bottom: 1rem; }
+    .product-features li {
+      padding: 0.25rem 0;
+      color: var(--tal-navy);
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.92rem;
+    }
+    .product-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--tal-lime);
+      font-weight: 900;
+    }
+    .product-note {
+      font-size: 0.875rem;
+      color: var(--tal-gray);
+      margin-bottom: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f3f4f6;
+      font-style: italic;
+    }
+    .product-cta { margin-top: 0.5rem; }
+    .micro-under-btn {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* Why / Comparison */
+    .why-section { padding: 5rem 0; background: white; }
+    .comparison-table-container { max-width: 980px; margin: 0 auto; overflow-x: auto; }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .comparison-table th {
+      background: var(--bg-soft);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 700;
+      color: var(--tal-navy);
+      font-size: 0.95rem;
+    }
+    .comparison-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.92rem;
+      color: #475569;
+      vertical-align: top;
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table td:first-child { font-weight: 800; color: var(--tal-navy); width: 28%; }
+    .comparison-table td:nth-child(2) { color: #64748b; }
+    .comparison-table td:last-child { color: var(--tal-blue); font-weight: 800; }
+
+    /* FAQ */
+    .faq-section { padding: 5rem 0; background: white; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-soft);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .faq-question { font-weight: 800; color: var(--tal-navy); margin-bottom: 0.5rem; font-size: 1rem; }
+    .faq-answer { color: #64748b; font-size: 0.95rem; line-height: 1.6; }
+
+    /* Final CTA */
+    .final-cta-section { padding: 5rem 0; background: var(--bg-soft); text-align: center; }
+    .final-cta-content { max-width: 720px; margin: 0 auto; }
+    .final-cta-content h2 { font-size: 2rem; font-weight: 800; color: var(--tal-navy); margin-bottom: 1rem; }
+    .final-cta-content p { font-size: 1.125rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6; }
+    .btn-large { padding: 1.25rem 2.5rem; font-size: 1.25rem; }
+    .final-footnote { font-size: 0.875rem; color: var(--tal-gray); margin-top: 1rem; }
+
+    /* Footer */
+    .footer { background: white; border-top: 1px solid #e5e7eb; padding: 2rem 0; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-left { color: var(--tal-gray); font-size: 0.875rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--tal-gray); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tal-blue); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { padding: 6rem 0 3rem; }
+      .header-nav { display: none; }
+      .how-it-works-content { grid-template-columns: 1fr; gap: 2rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .footer-content { flex-direction: column; }
+    }
+  </style>
+
+  <script>
+    function trackEvent(eventName, params = {}) {
+      // Placeholder. If you want GA or other tracking later, wire it here.
+      // console.log("Event:", eventName, params);
+    }
+  </script>
 </head>
-<body style="font-family: system-ui; padding: 40px;">
-  <h1>Talendro Resume Optimization</h1>
-  <p>Placeholder page. Full microsite HTML will be added next.</p>
-</body>
-</html>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo">Talendro™</a>
+        <nav class="header-nav">
+          <a href="#how-it-works">How it Works</a>
+          <a href="#products">Products</a>
+          <a href="#why-talendro">Why Talendro</a>
+          <a href="#faq">FAQ</a>
