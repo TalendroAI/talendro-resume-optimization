@@ -246,6 +246,7 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 520px;
+      position: relative;
     }
     .product-card:hover {
       border-color: var(--tal-blue);
@@ -255,6 +256,26 @@
     .product-card.featured {
       border-color: var(--tal-blue);
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    .product-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--tal-blue);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-badge.new {
+      background: #16a34a;
+    }
+    .product-badge.value {
+      background: #f59e0b;
     }
     .product-header { margin-bottom: 1.25rem; }
     .product-header h3 { font-size: 1.5rem; font-weight: 800; color: var(--tal-navy); margin-bottom: 0.25rem; }
@@ -413,22 +434,22 @@
         </p>
 
         <div class="hero-cta">
-          <!-- TODO: Replace href with Stripe link for Targeted Application Package -->
-          <a href="https://example.com/stripe-targeted-59" class="btn-primary" onclick="trackEvent('hero_cta_primary')">
-            Start Targeted Package — $59
+          <!-- Primary CTA: Targeted Application Package -->
+          <a href="#" class="btn-primary" onclick="trackEvent('hero_cta_primary')">
+            Start Targeted Package — $69
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
               <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
             </svg>
           </a>
 
-          <!-- TODO: Replace href with Stripe link for ATS Resume Foundation -->
-          <a href="https://example.com/stripe-foundation-39" class="btn-outline" onclick="trackEvent('hero_cta_secondary')">
+          <!-- Secondary CTA: ATS Resume Foundation -->
+          <a href="#" class="btn-outline" onclick="trackEvent('hero_cta_secondary')">
             Start Resume Foundation — $39
           </a>
         </div>
 
         <div class="cta-microcopy">
-          <strong>Intake:</strong> structured form + uploads only • <strong>Revisions:</strong> up to 3 rounds via Revision Request Form
+          <strong>No resume?</strong> Start with Resume Creation from Scratch — $129 • <strong>Revisions:</strong> up to 3 rounds via Revision Request Form
         </div>
 
         <div class="trust-indicator">
@@ -471,7 +492,7 @@
               <div class="step-number">1</div>
               <div class="step-content">
                 <h4>Submit structured intake</h4>
-                <p>Complete a short form and upload your résumé (and job description if applicable).</p>
+                <p>Complete a short form and upload your résumé (or complete our questionnaire if starting from scratch).</p>
               </div>
             </div>
 
@@ -528,40 +549,43 @@
     <div class="container">
       <div class="section-header">
         <h2>Choose your advantage</h2>
-        <p>From a strong baseline résumé to fully managed job-specific applications</p>
+        <p>From building your first résumé to fully managed job-specific applications</p>
       </div>
 
       <div class="products-grid">
-        <!-- Featured: Targeted Application Package -->
-        <div class="product-card featured">
+
+        <!-- NEW: Resume Creation from Scratch -->
+        <div class="product-card">
+          <div class="product-badge new">New</div>
           <div>
             <div class="product-header">
-              <h3>Targeted Application Package</h3>
-              <div class="product-tagline">Built to win one specific job — not “kind of match” it</div>
-              <div class="product-price">$59 <span>per job</span></div>
+              <h3>Resume Creation from Scratch</h3>
+              <div class="product-tagline">No resume? No problem. We build it from your story.</div>
+              <div class="product-price">$129 <span>one-time</span></div>
             </div>
 
             <div class="product-description">
-              Applying to a specific opening? This is the package. We fully rewrite your résumé <strong>and</strong> cover letter to match one job description and employer —
-              contextual, conceptual, and aligned for both ATS screening and human readers.
+              For new grads, career changers, military transitioners, or anyone starting fresh. Our guided questionnaire extracts your complete career story, 
+              and we build a professional, ATS-optimized résumé from the ground up.
             </div>
 
             <ul class="product-features">
-              <li>Job-specific résumé rewrite (ATS optimized)</li>
-              <li>Job-specific cover letter rewrite (aligned narrative)</li>
-              <li>Includes ATS version + visual version (bonus)</li>
-              <li>Keyword weighting based on the actual job posting</li>
+              <li>AI-guided questionnaire extracts your career story</li>
+              <li>Professionally written ATS-optimized résumé</li>
+              <li>Visual/design version included (for networking)</li>
+              <li>Achievement-driven bullet points</li>
+              <li>Industry-specific keyword optimization</li>
               <li>Up to 3 revision rounds (Revision Request Form)</li>
             </ul>
 
-            <p class="product-note">Most Popular — best choice if you’re applying to a role you really want to land.</p>
+            <p class="product-note">Perfect for those with no existing resume to optimize.</p>
           </div>
 
           <div class="product-cta">
-            <a href="https://example.com/stripe-targeted-59" class="btn-primary" onclick="trackEvent('product_cta_targeted')">
-              Start Targeted Package — $59
+            <a href="#" class="btn-outline" onclick="trackEvent('product_cta_creation')">
+              Create My Resume — $129
             </a>
-            <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
+            <div class="micro-under-btn">Guided questionnaire • ATS + visual versions • Up to 3 revisions</div>
           </div>
         </div>
 
@@ -589,8 +613,42 @@
           </div>
 
           <div class="product-cta">
-            <a href="https://example.com/stripe-foundation-39" class="btn-outline" onclick="trackEvent('product_cta_foundation')">
+            <a href="#" class="btn-outline" onclick="trackEvent('product_cta_foundation')">
               Start Resume Foundation — $39
+            </a>
+            <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
+          </div>
+        </div>
+
+        <!-- Featured: Targeted Application Package -->
+        <div class="product-card featured">
+          <div class="product-badge">Most Popular</div>
+          <div>
+            <div class="product-header">
+              <h3>Targeted Application Package</h3>
+              <div class="product-tagline">One job. One shot. Make it count.</div>
+              <div class="product-price">$69 <span>per job</span></div>
+            </div>
+
+            <div class="product-description">
+              Applying to a specific opening? This is the package. We fully rewrite your résumé <strong>and</strong> cover letter to match one job description and employer —
+              contextual, conceptual, and aligned for both ATS screening and human readers.
+            </div>
+
+            <ul class="product-features">
+              <li>Job-specific résumé rewrite (ATS optimized)</li>
+              <li>Job-specific cover letter rewrite (aligned narrative)</li>
+              <li>Includes ATS version + visual version</li>
+              <li>Keyword weighting based on the actual job posting</li>
+              <li>Up to 3 revision rounds (Revision Request Form)</li>
+            </ul>
+
+            <p class="product-note">Best choice if you're applying to a role you really want to land.</p>
+          </div>
+
+          <div class="product-cta">
+            <a href="#" class="btn-primary" onclick="trackEvent('product_cta_targeted')">
+              Start Targeted Package — $69
             </a>
             <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
           </div>
@@ -601,8 +659,8 @@
           <div>
             <div class="product-header">
               <h3>Executive Application Package</h3>
-              <div class="product-tagline">Leadership-level positioning for Director, VP, and Exec roles</div>
-              <div class="product-price">$129 <span>per job</span></div>
+              <div class="product-tagline">Leadership stories that land executive roles.</div>
+              <div class="product-price">$149 <span>per job</span></div>
             </div>
 
             <div class="product-description">
@@ -613,15 +671,17 @@
             <ul class="product-features">
               <li>Executive-level résumé rewrite (ATS optimized)</li>
               <li>Executive-level cover letter rewrite (boardroom tone)</li>
-              <li>Includes ATS version + visual version (bonus)</li>
+              <li>Includes ATS version + visual version</li>
               <li>Scope + outcomes framing (teams, budgets, scale, transformation)</li>
               <li>Up to 3 revision rounds (Revision Request Form)</li>
             </ul>
+
+            <p class="product-note">For Directors, VPs, and C-suite executives.</p>
           </div>
 
           <div class="product-cta">
-            <a href="https://example.com/stripe-exec-129" class="btn-outline" onclick="trackEvent('product_cta_exec')">
-              Start Executive Package — $129
+            <a href="#" class="btn-outline" onclick="trackEvent('product_cta_exec')">
+              Start Executive Package — $149
             </a>
             <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
           </div>
@@ -632,7 +692,7 @@
           <div>
             <div class="product-header">
               <h3>LinkedIn Search Optimization</h3>
-              <div class="product-tagline">Get found. Look credible. Convert views into interviews.</div>
+              <div class="product-tagline">Get found by the recruiters already searching for you.</div>
               <div class="product-price">$49 <span>one-time</span></div>
             </div>
 
@@ -643,7 +703,7 @@
 
             <ul class="product-features">
               <li>Recruiter-search optimized headline options</li>
-              <li>“About” section rewrite (clean, skimmable, strong)</li>
+              <li>"About" section rewrite (clean, skimmable, strong)</li>
               <li>Skills prioritization (what recruiters actually filter by)</li>
               <li>Experience guidance aligned to your résumé</li>
               <li>Step-by-step placement instructions</li>
@@ -652,41 +712,8 @@
           </div>
 
           <div class="product-cta">
-            <a href="https://example.com/stripe-linkedin-49" class="btn-outline" onclick="trackEvent('product_cta_linkedin')">
+            <a href="#" class="btn-outline" onclick="trackEvent('product_cta_linkedin')">
               Optimize My LinkedIn — $49
-            </a>
-            <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
-          </div>
-        </div>
-        <!-- Career Optimization Subscription -->
-        <div class="product-card">
-          <div>
-            <div class="product-header">
-              <h3>Career Optimization</h3>
-              <div class="product-tagline">Ongoing polish + positioning while you search</div>
-              <div class="product-price">$79 <span>/ month</span></div>
-            </div>
-
-            <div class="product-description">
-              For candidates who want consistent momentum without full white-glove volume. This plan keeps your core positioning sharp,
-              strengthens your narrative, and supports multiple applications with controlled, repeatable updates.
-            </div>
-
-            <ul class="product-features">
-              <li>Resume Foundation refresh (monthly) — keep ATS + impact current</li>
-              <li>Up to 3 Targeted Application Packages / month</li>
-              <li>Each includes job-specific résumé + cover letter</li>
-              <li>Includes ATS version + visual version each time</li>
-              <li>LinkedIn optimization refresh (monthly light update)</li>
-              <li>Up to 3 revision rounds per deliverable (Revision Request Form)</li>
-            </ul>
-
-            <p class="product-note">Best if you’re applying selectively (and want quality control every week).</p>
-          </div>
-
-          <div class="product-cta">
-            <a href="https://example.com/stripe-career-79mo" class="btn-outline" onclick="trackEvent('product_cta_career')">
-              Start Career Optimization — $79/mo
             </a>
             <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
           </div>
@@ -694,63 +721,35 @@
 
         <!-- Active Job Search Subscription -->
         <div class="product-card">
+          <div class="product-badge value">Best Value</div>
           <div>
             <div class="product-header">
               <h3>Active Job Search</h3>
-              <div class="product-tagline">Best for high-volume applicants applying to multiple roles</div>
-              <div class="product-price">$49 <span>/ month</span></div>
+              <div class="product-tagline">Apply with confidence. Every single time.</div>
+              <div class="product-price">$59 <span>/ month</span></div>
             </div>
 
             <div class="product-description">
-              If you’re actively applying every week, this keeps your applications sharp without starting from scratch each time.
-              Get a defined number of Targeted Application Packages each month — optimized, consistent, and fast.
+              For serious job seekers applying to multiple roles. Get up to 5 complete targeted packages per month, 
+              plus a monthly resume refresh and LinkedIn update — everything you need to maintain momentum.
             </div>
 
             <ul class="product-features">
               <li>Up to 5 Targeted Application Packages / month</li>
               <li>Each includes résumé + cover letter (job-specific)</li>
               <li>Includes ATS version + visual version each time</li>
-              <li>Up to 3 revision rounds per deliverable (Revision Request Form)</li>
-            </ul>
-
-            <p class="product-note">Best if you’re applying to ~5+ roles per month.</p>
-          </div>
-
-          <div class="product-cta">
-            <a href="https://example.com/stripe-active-49mo" class="btn-outline" onclick="trackEvent('product_cta_active')">
-              Start Active Job Search — $49/mo
-            </a>
-            <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
-          </div>
-        </div>
-
-        <!-- White-Glove Pro Subscription -->
-        <div class="product-card">
-          <div>
-            <div class="product-header">
-              <h3>White-Glove Pro</h3>
-              <div class="product-tagline">The “handle it for me” plan — highest leverage</div>
-              <div class="product-price">$149 <span>/ month</span></div>
-            </div>
-
-            <div class="product-description">
-              For serious searches where time matters. You get maximum monthly throughput, LinkedIn included, and priority handling —
-              a complete positioning system while you focus on interviewing and closing.
-            </div>
-
-            <ul class="product-features">
-              <li>Up to 12 Targeted Application Packages / month</li>
-              <li>LinkedIn Search Optimization included</li>
+              <li>Monthly base résumé refresh</li>
+              <li>LinkedIn profile update included</li>
               <li>Priority processing</li>
-              <li>Includes résumé + cover letter per job</li>
-              <li>Includes ATS version + visual version each time</li>
-              <li>Up to 3 revision rounds per deliverable (Revision Request Form)</li>
+              <li>Up to 3 revision rounds per deliverable</li>
             </ul>
+
+            <p class="product-note">Best value at $11.80/application vs $69 one-time. Cancel anytime.</p>
           </div>
 
           <div class="product-cta">
-            <a href="https://example.com/stripe-whiteglove-149mo" class="btn-outline" onclick="trackEvent('product_cta_whiteglove')">
-              Go White-Glove — $149/mo
+            <a href="#" class="btn-outline" onclick="trackEvent('product_cta_active')">
+              Start Active Job Search — $59/mo
             </a>
             <div class="micro-under-btn">Structured intake + uploads only • Up to 3 revisions via Revision Request Form</div>
           </div>
@@ -783,6 +782,11 @@
           </thead>
           <tbody>
             <tr>
+              <td>Pricing</td>
+              <td>$449–$699 for entry-level</td>
+              <td>$39–$149 (70–80% less)</td>
+            </tr>
+            <tr>
               <td>Focus</td>
               <td>Looks & templates</td>
               <td>ATS + recruiter behavior</td>
@@ -793,9 +797,9 @@
               <td>Structured, consistent inputs</td>
             </tr>
             <tr>
-              <td>Revisions</td>
-              <td>Open-ended</td>
-              <td>Up to 3 structured rounds</td>
+              <td>Turnaround</td>
+              <td>Days to weeks</td>
+              <td>Minutes to hours</td>
             </tr>
             <tr>
               <td>Job-specific work</td>
@@ -809,13 +813,8 @@
             </tr>
             <tr>
               <td>LinkedIn</td>
-              <td>Optional fluff</td>
-              <td>Recruiter-search optimized</td>
-            </tr>
-            <tr>
-              <td>Delivery model</td>
-              <td>Slow, inconsistent</td>
-              <td>Repeatable quality at scale</td>
+              <td>$179–$199 add-on</td>
+              <td>$49 standalone or included in subscription</td>
             </tr>
           </tbody>
         </table>
@@ -830,11 +829,18 @@
         <div class="section-kicker">Questions</div>
         <h2 class="section-title">Frequently Asked by Job Seekers</h2>
         <p class="section-subtitle">
-          If you’re stressed, busy, or feeling behind — you’re exactly who we built this for.
+          If you're stressed, busy, or feeling behind — you're exactly who we built this for.
         </p>
       </div>
 
       <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">What if I don't have a resume at all?</div>
+          <div class="faq-answer">
+            Start with Resume Creation from Scratch ($129). Our guided questionnaire extracts your career story, and we build both an ATS-optimized and visual version from the ground up.
+          </div>
+        </div>
+
         <div class="faq-item">
           <div class="faq-question">Do you use templates?</div>
           <div class="faq-answer">
@@ -857,13 +863,6 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-question">Do you customize cover letters?</div>
-          <div class="faq-answer">
-            Yes — when the work is job-specific. Cover letters are rewritten to match the résumé and role, not just “keyword swapped.”
-          </div>
-        </div>
-
-        <div class="faq-item">
           <div class="faq-question">How do revisions work?</div>
           <div class="faq-answer">
             Each deliverable includes up to 3 structured revision rounds. All revision requests are submitted via the Revision Request Form.
@@ -871,9 +870,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-question">Can I explain things in chat or email?</div>
+          <div class="faq-question">Why is this so much cheaper than other services?</div>
           <div class="faq-answer">
-            No. Inputs and revisions must be submitted through structured forms to ensure clarity, accuracy, and consistent results.
+            AI-powered efficiency. We deliver premium quality at 70–80% below traditional human-written resume services — without the scheduling, phone calls, or week-long waits.
           </div>
         </div>
 
@@ -887,7 +886,7 @@
         <div class="faq-item">
           <div class="faq-question">Which product should I start with?</div>
           <div class="faq-answer">
-            If you’re applying to a specific job: start with the Targeted Application Package. If you need a baseline: start with Resume Foundation.
+            No resume? Start with Resume Creation ($129). Have a resume but need a baseline? Start with Resume Foundation ($39). Targeting a specific job? Start with Targeted Package ($69).
           </div>
         </div>
       </div>
@@ -900,19 +899,19 @@
       <div class="final-cta-content">
         <h2>Stop guessing. Start applying with confidence.</h2>
         <p>
-          You’ve already done the hard work building your career. We make sure it’s positioned correctly —
-          every time it’s evaluated.
+          You've already done the hard work building your career. We make sure it's positioned correctly —
+          every time it's evaluated.
         </p>
 
-        <a href="https://example.com/stripe-targeted-59" class="btn-primary btn-large" onclick="trackEvent('final_cta_click')">
-          Start Targeted Package — $59
+        <a href="#" class="btn-primary btn-large" onclick="trackEvent('final_cta_click')">
+          Start Targeted Package — $69
           <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
           </svg>
         </a>
 
         <div class="final-footnote">
-          Structured intake + uploads only • Up to 3 revisions via Revision Request Form
+          No resume? <a href="#products" style="color: var(--tal-blue); text-decoration: underline;">Start with Resume Creation — $129</a> • Up to 3 revisions via Revision Request Form
         </div>
       </div>
     </div>
